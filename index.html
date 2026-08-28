@@ -353,7 +353,7 @@ section[data-dark] .lead strong{color:#fff}
 .key-demo-note{font-family:var(--mono);font-size:.62rem;letter-spacing:.03em;color:rgba(255,255,255,.4);margin-top:.75rem;text-transform:none}
 .key-demo-btn{
   display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;margin-top:1.5rem;
-  padding:.95rem 1.4rem;border-radius:999px;border:0;cursor:pointer;
+  padding:.95rem 1.4rem;border-radius:999px;border:0;cursor:pointer;text-decoration:none;
   background:var(--orange);color:var(--ink);font-family:var(--display);font-weight:800;font-size:1rem;
   box-shadow:0 20px 44px -16px rgba(255,108,55,.75);
   transition:transform .2s ease,box-shadow .2s ease;
@@ -768,7 +768,7 @@ section[data-orange] .strip b{border-color:rgba(255,255,255,.45);color:#fff}
           <label class="key-demo-lbl" for="keyNameDemo">Your name on the key</label>
           <div class="key-demo-input" id="keyNameDemo">Aarav Menon</div>
           <p class="key-demo-note">Demo only &#8212; real keys are generated from the employee directory.</p>
-          <button type="button" class="key-demo-btn" id="openInviteBtn">Open your invitation <span aria-hidden="true">&#8594;</span></button>
+          <a class="key-demo-btn" id="openInviteBtn" href="https://postman-new-address.techlab-716.workers.dev/" target="_blank" rel="noopener noreferrer">Open your invitation <span aria-hidden="true">&#8594;</span></a>
         </div>
       </div>
     </div>
@@ -1336,14 +1336,9 @@ section[data-orange] .strip b{border-color:rgba(255,255,255,.45);color:#fff}
   });
   if(pinBtns.length) pinBtns[0].classList.add('done');
 
-  /* ---- one key demo card: the button advances to the next beat ---- */
-  var openInviteBtn = document.getElementById('openInviteBtn');
-  if(openInviteBtn){
-    openInviteBtn.addEventListener('click', function(){
-      var next = document.getElementById('keycarry');
-      if(next) next.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
-    });
-  }
+  /* ---- one key demo card: "Open your invitation" is now a real link
+     (see the <a href> in the markup) — opens the live invitation site
+     in a new tab, no JS needed for that. ---- */
 
   /* ---- safety net ----
      If the observers never deliver (browser quirk, background tab that never
